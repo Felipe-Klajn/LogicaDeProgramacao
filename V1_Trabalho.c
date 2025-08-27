@@ -7,7 +7,7 @@ double DIVISAO(double a, double b);
 int POTENCIACAO (int base, int expoente);
 int MDC(int a, int b);
 int MMC(int a, int b);
-int RAIZ_QUADRADA (int a);
+double RAIZ_QUADRADA (double a);
 int FATORIAL_SIMPLES(int a);
 int FATORIAL_DUPLO(int a);
 void EQUACAO_SEGUNDO_GRAU(double a, double b, double c);
@@ -61,8 +61,8 @@ do{
 			double b=0.0;
 			printf("Por favor, digite dois numeros quaisquer:\n");
 			scanf("%lf",&a);
-			scanf(%lf,&b);
-			printf("A soma de %lf e %lf e %.5lf, a, b, SOMA(a,b);
+			scanf("%lf",&b);
+			printf("A soma de %lf e %lf e %.5lf", a, b, SOMA(a,b));
 			break;
 			
 		case 4:
@@ -107,12 +107,12 @@ do{
 			break;
 			
 		case 8:
-			int a=0;
+			double a = 0.0;
 			printf("Digite um numero qualquer\n");
-			scanf("%d",&a);
-			int result = RAIZ_QUADRADA(a);
+			scanf("%lf",&a);
+			double result = RAIZ_QUADRADA(a);
 			if(result != -1){ 
-				printf("Raiz aproximada e: %d\n",result);}
+				printf("Raiz aproximada e: %lf\n",result);}
 			break;
 			
 		case 9:
@@ -144,6 +144,8 @@ do{
 			double result = EQUACAO_SEGUNDO_GRAU(a,b,c);
 			if(result != -1){
 				printf("O resultado da equacao de segundo grau com os valores de %d, %d e %d e %d\n",a,b,c,result);
+			}
+			break;
 				
 		case 3:
 			printf("Sair\n");
@@ -182,7 +184,7 @@ do{
 			return(result);
 		}
 		
-		int RAIZ_QUADRADA(int a){
+		double RAIZ_QUADRADA(double a){
 			if(a<0){
 				printf("Nao existe raiz quadrada de numero negativo!\n");
 				return -1;
@@ -250,20 +252,21 @@ do{
 			if(a<0){
 				printf("Nao existe fatorial duplo de numero negativo!\n");
 				return -1;
-			
-			if (a==0 || a==0){
+			}
+			if (a==0 || a==1){
 				return 1;
 			}
 			
-			if (a>0){
-				int result = 1;
-				
+			if (a %2 == 0){
+				for (int i=2; i<=a; i+=2){
+					result *= i;
 				}
+			} else{
+				for (int i=1; i<=a; i+=2){
+					result *= i; 
+    }
 				return (result);
 			}
-    }
-				
-				
 			
 			
 		
