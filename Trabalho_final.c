@@ -198,7 +198,9 @@ int FATORIAL_SIMPLES(int a) {
         return -1;
     }
     int result = 1;
-    for (int i = 1; i <= a; i++) result *= i;
+    for (int i = 1; i <= a; i++) {
+		result *= i;
+	}
     return result;
 }
 
@@ -209,9 +211,13 @@ int FATORIAL_DUPLO(int a) {
     }
     int result = 1;
     if (a % 2 == 0) {
-        for (int i = 2; i <= a; i += 2) result *= i;
+        for (int i = 2; i <= a; i += 2) {
+			result *= i;
+		}
     } else {
-        for (int i = 1; i <= a; i += 2) result *= i;
+        for (int i = 1; i <= a; i += 2) {
+			result *= i;
+		}
     }
     return result;
 }
