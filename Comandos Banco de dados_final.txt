@@ -1,0 +1,103 @@
+Criação e Estrutura do Banco:
+	1 - Acesse o MariaDB usando o usuário root.
+	MariaDb -u root -p
+
+	2 - Liste todos os bancos de dados existentes.
+	show databases;
+
+	3 - Crie um banco de dados chamado LOJA_VIRTUAL.
+	create database LOJA_VIRTUAL;
+	
+	4 - Acesse o banco LOJA_VIRTUAL.
+	use LOJA_VIRTUAL;
+
+	5 - Crie uma tabela CLIENTES com os campos:
+	create table CLIENTES
+
+	6 - NOME_COMPLETO (VARCHAR 200, obrigatório)
+	create table CLIENTES(NOME_COMPLETO varchar(200) NOT NULL);
+
+	7 - CELULAR (VARCHAR 20, opcional)
+	create table CLIENTES(CELULAR varchar(20));
+
+	8 - Crie uma tabela PRODUTOS com os campos:
+	9 - NOME (VARCHAR 150, obrigatório)
+	10 - CATEGORIA (VARCHAR 100, obrigatório)
+	11 - PRECO (DECIMAL 10,2, obrigatório)
+	create table PRODUTOS(NOME varchar(150) NOT NULL, CATEGORIA varchar(100) NOT NULL, PRECO decimal (10,2) NOT NULL);
+
+	12 - Liste todas as tabelas criadas no banco.
+	Show Tables;
+
+	13 - Mostre a estrutura das tabelas CLIENTES e PRODUTOS.
+	desc clientes;
+	desc produtos;
+
+Inserção e Consulta de Dados
+	14 - Insira 3 clientes na tabela CLIENTES.
+	insert into CLIENTES(NOME_COMPLETO, CELULAR) values ("FELIPE", "998390442");
+	insert into CLIENTES(NOME_COMPLETO, CELULAR) values ("CAMILA", "99097073");
+	insert into CLIENTES(NOME_COMPLETO, CELULAR) values ("JOSE", "998390441");
+
+	15 - Insira 3 produtos na tabela PRODUTOS.
+	insert into PRODUTOS(NOME, CATEGORIA, PRECO) values ("FURADEIRA", "FERRAMENTA", "510.15");
+	insert into PRODUTOS(NOME, CATEGORIA, PRECO) values ("MESA DE SINUCA", "LAZER", "1200.00");
+	insert into PRODUTOS(NOME, CATEGORIA, PRECO) values ("CAFE EM GRAOS", "ALIMENTO", "70.00"); 
+
+	16 - Mostre todos os registros da tabela CLIENTES.
+	select *from CLIENTES;
+
+	17 - Mostre todos os registros da tabela PRODUTOS.
+	select *from PRODUTOS;
+
+	18 - Mostre apenas os produtos com preço maior que 500.00.
+	select *from PRODUTOS where PRECO>500.00;
+
+	19 - Mostre apenas os clientes cujo nome seja igual a um nome específico.
+	select *from CLIENTES where NOME_COMPLETO = "FELIPE"; 
+
+Atualização de Dados
+	20 - Atualize o celular de um cliente específico.
+	update CLIENTES set CELULAR = 45998390442 where NOME_COMPLETO="FELIPE";
+
+	21 - Atualize a categoria de um produto específico.
+	update PRODUTOS set CATEGORIA = "MOBILIA" where NOME = "MESA DE SINUCA";
+
+	22 - Aumente o preço de um produto em 15%.
+	update PRODUTOS set PRECO = 80.15 where NOME = "CAFE EM GRAOS";
+
+	23 - Altere o nome de um cliente para outro nome.
+	update CLIENTES set NOME_COMPLETO = "FELIPPE" where NOME_COMPLETO = "FELIPE";
+
+Exclusão de Dados
+	24 - Exclua um cliente específico da tabela CLIENTES.
+	delete from CLIENTES where NOME_COMPLETO = "JOSE";
+
+	24 - Exclua um produto específico da tabela PRODUTOS.
+	delete from PRODUTOS where NOME = "CAFE EM GRAOS";
+
+	26 - Exclua todos os registros da tabela CLIENTES (sem apagar a tabela).
+	delete from CLIENTES;
+
+	27 - Alterações na Estrutura das Tabelas
+	alter table
+
+	28 - Adicione um novo campo CPF (VARCHAR 14) na tabela CLIENTES.
+	alter table CLIENTES add column CPF varchar(14);
+
+	29 - Atualize os valores de CPF para os clientes existentes.
+	update CLIENTES set CPF = "";
+
+	30 - Modifique o tipo do campo CPF para CHAR(11).
+	alter table CLIENTES modify column CPF char(11);
+
+	31 - Apague o campo CPF da tabela CLIENTES.
+	alter table CLIENTES drop column cpf;
+
+	32 - Adicione um campo ESTOQUE (INT) na tabela PRODUTOS.
+	alter table PRODUTOS add column ESTOQUE int;	
+
+	33 - Liste novamente as tabelas para confirmar a alteração do nome.
+	show tables;
+	desc CLIENTES;
+	desc PRODUTOS;
