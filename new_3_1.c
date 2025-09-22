@@ -78,7 +78,7 @@ void cadastrar_produto() {
         return;
     }
 
-    struct produto novo;
+    struct Produto novo;
     printf("Digite o codigo do produto:\n");
     scanf("%d", &novo.codigo);
 
@@ -89,13 +89,13 @@ void cadastrar_produto() {
         }
     }
 
-    printf("Digite o nome do produto: ");
+    printf("Digite o nome do produto:\n ");
     scanf(" %[^\n]", novo.nome);
 
-    printf("Digite a quantidade: ");
+    printf("Digite a quantidade:\n ");
     scanf("%d", &novo.quantidade);
 
-    printf("Digite o preco unitario: ");
+    printf("Digite o preco unitario:\n ");
     scanf("%f", &novo.preco);
 
     estoque[total_produtos] = novo;
@@ -128,16 +128,17 @@ void buscar_produto() {
 
     for (int i = 0; i < total_produtos; i++) {
         if (estoque[i].codigo == codigo) {
-            printf("\nProduto encontrado:\n");
+            printf("Produto encontrado:\n");
             printf("Codigo: %d\n", estoque[i].codigo);
             printf("Nome: %s\n", estoque[i].nome);
             printf("Quantidade: %d\n", estoque[i].quantidade);
             printf("Preco: R$ %.2f\n", estoque[i].preco);
             return;
         }
+		else{
+			printf("produto nao encontrado!\n");
     }
-
-    printf("Produto nao encontrado!\n");
+	}
 }
 
 // Atualizar quantidade em estoque
@@ -155,17 +156,17 @@ void atualizar_quantidade() {
             printf("Produto encontrado: %s\n", estoque[i].nome);
             printf("Quantidade atual: %d\n", estoque[i].quantidade);
 
-            printf("Deseja adicionar (A) ou retirar (R) unidades? ");
+            printf("Deseja adicionar (A) ou retirar (R) unidades?\n ");
             scanf("%c", &opcao);
 
             if (opcao == 'A' || opcao == 'a') {
-                printf("Digite a quantidade a adicionar: ");
+                printf("Digite a quantidade a adicionar:\n ");
                 scanf("%d", &quantidade);
                 estoque[i].quantidade += quantidade;
                 printf("Quantidade atualizada!\n");
             }
             else if (opcao == 'R' || opcao == 'r') {
-                printf("Digite a quantidade a retirar: ");
+                printf("Digite a quantidade a retirar:\n ");
                 scanf("%d", &quantidade);
                 if (quantidade > estoque[i].quantidade) {
                     printf("Erro: nao ha quantidade suficiente em estoque!\n");
