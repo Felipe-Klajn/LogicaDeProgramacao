@@ -10,7 +10,7 @@ struct Produto {
     float preco;
 };
 
-struct Produto_estoque [maximo_produtos];
+struct Produto estoque [maximo_produtos];
 int total_produtos = 0;
 
 void cadastrar_produto();
@@ -27,7 +27,7 @@ int main() {
     carregar_dados();
 
     do {
-        printf("\n===== SISTEMA DE ESTOQUE =====\n");
+        printf("\n----- SISTEMA DE ESTOQUE -----\n");
         printf("1. Cadastrar produto\n");
         printf("2. Listar todos os produtos\n");
         printf("3. Buscar produto por codigo\n");
@@ -78,7 +78,7 @@ void cadastrar_produto() {
         return;
     }
 
-    struct produto_novo;
+    struct produto novo;
     printf("Digite o codigo do produto:\n");
     scanf("%d", &novo.codigo);
 
@@ -170,7 +170,7 @@ void atualizar_quantidade() {
                 if (quantidade > estoque[i].quantidade) {
                     printf("Erro: nao ha quantidade suficiente em estoque!\n");
                 } else {
-                    estoque[i].quantidade -= qtd;
+                    estoque[i].quantidade -= quantidade;
                     printf("Quantidade atualizada com sucesso!\n");
                 }
             } else {
