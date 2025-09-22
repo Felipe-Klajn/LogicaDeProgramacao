@@ -27,16 +27,16 @@ int main() {
     carregar_dados();
 
     do {
-		printf("Escolha uma opcao: ");
-        scanf("%d", &opcao);
-        printf("\n----- SISTEMA DE ESTOQUE -----\n");
+		printf("\n----- SISTEMA DE ESTOQUE -----\n");
         printf("1. Cadastrar produto\n");
         printf("2. Listar todos os produtos\n");
         printf("3. Buscar produto por codigo\n");
         printf("4. Atualizar quantidade em estoque\n");
         printf("5. Calcular valor total do estoque\n");
         printf("6. Salvar dados\n");
-        printf("7. Encerrar programa\n");        
+        printf("7. Encerrar programa\n");
+		printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
 
         switch (opcao) {
             case 1:
@@ -234,3 +234,4 @@ void salvar_dados() {
     fclose(arquivo);
 
 }
+
