@@ -36,4 +36,19 @@ insert alunos (nome) values ("Loreni");
 
 select *from alunos order by nome; \\ ordena os resultados em ordem alfabética na ordem normal.
 
+
 select *from alunos order by nome desc; \\ ordena os resultados em ordem alfabética "de trás para frente".
+
+select *from alunos where nome like "%G%;" // encontra no banco de dados qualquer nome que possua a letra G;
+select *from alunos where nome like "G%" // encontra no banco de dados qualquer nome que inicia com a letra G;
+select *from alunos where nome like "%G" // encontra no banco de dados qualquer nome que termina com a letra G;
+
+select *from alunos where nome like "B% AND ativo = 1;
+select *from alunos where nome like "B% OR nome like "%g%";
+select *from alunos not where nome like "%u%; // seleciona qualquer nome que não possua a letra u.
+
+alter table alunos add column data_nsc date; // adiciona a coluna de data de nascimento.
+insert into aluno (nome, data_nsc) values ("Gabriel", "2001-03-25"); // para passar valores de data, colocar no formato aaaa-mm-dd.
+
+select *from alunos order by data_nsc asc; // ordena do mais velho para o mais novo.
+select *from alunos where data_nsc is not null order by data_nsc asc; // seleciona alunos cuja data de nascimento nao é nula e ordena por ordem do mais velho para o mais novo.
