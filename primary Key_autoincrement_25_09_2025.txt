@@ -52,3 +52,7 @@ insert into aluno (nome, data_nsc) values ("Gabriel", "2001-03-25"); // para pas
 
 select *from alunos order by data_nsc asc; // ordena do mais velho para o mais novo.
 select *from alunos where data_nsc is not null order by data_nsc asc; // seleciona alunos cuja data de nascimento nao é nula e ordena por ordem do mais velho para o mais novo.
+
+select *from alunos where data_nsc is not null order by data_nsc asc limit 1; retorna apenas a primeira linha levando em consideração o comando anterior;
+select *from alunos where data_nsc is not null order by data_nsc asc limit 5; retorna as cinco primeiras linhas levando em consideração o comando anterior;
+
