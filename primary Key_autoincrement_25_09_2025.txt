@@ -16,4 +16,11 @@ insert into alunos(nome) values("Maria");
 
 insert into alunos(ID, nome) values(75, "Lucas); \\quando se "quebra" o auto_increment, ele vai colocar a sequência de IDs a partir do maior número.
 
-insert into alunos(nome) values ("Jordana";
+insert into alunos(nome) values ("Jordana");
+
+
+alter table alunos add column ativo boolean not null default (true); \\ por padrão, será inserido uma coluna com "verdadeiro" ao lado de cada ID com o valor 1.
+
+insert into alunos(nome, ativo) values ("Valentina", false); \\ aqui estou inserindo o valor "falso";
+
+insert into alunos(nome) values ("Pamela"); \\ aqui será inserido o valor "1" pois o padrão é verdadeiro.
