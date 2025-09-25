@@ -24,3 +24,16 @@ alter table alunos add column ativo boolean not null default (true); \\ por padr
 insert into alunos(nome, ativo) values ("Valentina", false); \\ aqui estou inserindo o valor "falso";
 
 insert into alunos(nome) values ("Pamela"); \\ aqui será inserido o valor "1" pois o padrão é verdadeiro.
+
+alter table alunos add column RA varchar (100) not null default ("SEM REGISTRO");
+
+update alunos set RA = "123" where id = 1;
+update alunos set RA = "456" where id = 2;
+update alunos set RA = "789" where id = 3;
+update alunos set RA = "101" where id = 4;
+
+insert alunos (nome) values ("Loreni");
+
+select *from alunos order by nome; \\ ordena os resultados em ordem alfabética na ordem normal.
+
+select *from alunos order by nome desc; \\ ordena os resultados em ordem alfabética "de trás para frente".
