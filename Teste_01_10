@@ -1,0 +1,89 @@
+#include <stdio.h>
+
+#define MAX_PESSOAS 5
+#define TAM_NOME 50
+
+// Definição do struct
+typedef struct {
+    char nome[TAM_NOME];
+    int idade;
+    float altura;
+} Pessoa;
+
+// Função para comparar duas strings (retorna >0 se s1 > s2, <0 se s1 < s2, 0 se iguais)
+int comparaString(char s1[], char s2[]) {
+    int i = 0;
+    while (s1[i] != '\0' && s2[i] != '\0') {
+        if (s1[i] != s2[i]) {
+            return s1[i] - s2[i];
+        }
+        i++;
+    }
+    return s1[i] - s2[i];
+}
+
+// Função para copiar uma string
+void copiaString(char destino[], char origem[]) {
+    int i = 0;
+    while (origem[i] != '\0') {
+        destino[i] = origem[i];
+        i++;
+    }
+    destino[i] = '\0';
+}
+
+// Função Bubble Sort para ordenar alfabeticamente pelo nome
+void bubbleSort(Pessoa pessoas[], int n) {
+    int i, j;
+    Pessoa temp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (comparaString(pessoas[j].nome, pessoas[j + 1].nome) > 0) {
+                temp = pessoas[j];
+                pessoas[j] = pessoas[j + 1];
+                pessoas[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    Pessoa pessoas[MAX_PESSOAS];
+    int i;
+
+    // Entrada de dados
+    for (i = 0; i < MAX_PESSOAS; i++) {
+        printf("Digite o nome da pessoa %d: ", i + 1);
+        fgets(pessoas[i].nome, TAM_NOME, stdin);
+
+        // Remover '\n' do final (caso exista)
+        int k = 0;
+        while (pessoas[i].nome[k] != '\0') {
+            if (pessoas[i].nome[k] == '\n') {
+                pessoas[i].nome[k] = '\0';
+                break;
+            }
+            k++;
+        }
+
+        printf("Digite a idade: ");
+        scanf("%d", &pessoas[i].idade);
+
+        printf("Digite a altura: ");
+        scanf("%f", &pessoas[i].altura);
+
+        getchar(); // Limpar buffer do teclado
+    }
+
+    // Ordena pelo nome
+    bubbleSort(pessoas, MAX_PESSOAS);
+
+    // Exibe resultado
+    printf("\n--- Pessoas ordenadas por nome ---\n");
+    for (i = 0; i < MAX_PESSOAS; i++) {
+        printf("Nome: %s | Idade: %d | Altura: %.2f\n", 
+                pessoas[i].nome, pessoas[i].idade, pessoas[i].altura);
+    }
+
+    return 0;
+}
