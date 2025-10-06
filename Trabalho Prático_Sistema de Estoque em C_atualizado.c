@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <windows.h>
 
 
@@ -338,3 +337,4 @@ void OrdenarProdutos(prod *estoque)
         printf("%d - %s | Qtd: %d | R$ %.2f\n", estoque[j].codigo, estoque[j].nome, estoque[j].quantidade, estoque[j].preco);
     }
 }
+
