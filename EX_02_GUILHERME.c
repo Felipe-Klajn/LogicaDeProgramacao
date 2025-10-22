@@ -124,3 +124,27 @@ INSERT INTO Estaciona (cod, Patio_num, Veiculo_placa, dtEntrada, dtSaida, hsEntr
 (10, 10, 'JKL0J12', '2025-10-15', '2025-10-15', '07:30', '11:20');
 
 // Exiba a placa e o nome dos donos de todos os veículos. 
+
+SELECT 
+    * 
+FROM Veiculo
+    JOIN Modelo ON Veiculo.Modelo_codMod = Modelo.codMod
+    JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf;
+
+
+SELECT 
+    -- Veiculo.*,
+    Veiculo.placa,
+    Cliente.nome
+FROM Veiculo
+    JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf;
+
+// Exiba a placa e a cor do veículo que possui o código de estacionamento 1.
+SELECT
+Estaciona.Veiculo_placa,
+Veiculo.cor
+FROM Estaciona
+
+JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
+
+where cod =1;
