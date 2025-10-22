@@ -148,3 +148,71 @@ FROM Estaciona
 JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
 
 where cod =1;
+
+//A. Exiba a placa e o nome dos donos de todos os veículos.
+
+SELECT 
+    * 
+FROM Veiculo
+    JOIN Modelo ON Veiculo.Modelo_codMod = Modelo.codMod
+    JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf;
+
+
+SELECT 
+    -- Veiculo.*,
+    Veiculo.placa,
+    Cliente.nome
+FROM Veiculo
+    JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf;
+	
+//B. Exiba o CPF e o nome do cliente que possui o veículo de placa “FGH6F78”
+SELECT
+Cliente.cpf,
+Cliente.nome,
+Veiculo.placa
+FROM Veiculo
+	JOIN Cliente ON Veiculo.Cliente_cpf = cliente.cpf
+	
+where Veiculo.placa = "FGH6F78";
+
+
+//C. Exiba a placa e a cor do veículo que possui o código de estacionamento 1.
+SELECT
+Estaciona.Veiculo_placa,
+Veiculo.cor
+FROM Estaciona
+
+JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
+
+where cod =1;
+
+//D. Exiba a placa do veículo que possui o código de estacionamento 1.
+SELECT
+Estaciona.Veiculo_placa,
+Estaciona.cod
+FROM Estaciona
+
+JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
+
+where cod =1;
+
+//E. Exiba a placa e a descrição dos modelos dos veículos.
+SELECT
+Veiculo.placa,
+Modelo.Desc_2
+FROM Veiculo
+
+JOIN Modelo ON Veiculo.modelo_codMod = modelo.codmod;
+
+//F. Exiba o endereço, a data de entrada e de saída dos estacionamentos do veículo de placa “HIJ8H90”.
+SELECT
+Patio.ender,
+Estaciona.dtEntrada,
+Estaciona.dtSaida,
+FROM Estaciona
+
+JOIN Patio ON Estaciona.patio_num = patio.num
+
+where Veiculo_placa = "HIJ8H90";
+
+// G. Exiba a quantidade de vezes que os veículos de cor preto estacionaram
