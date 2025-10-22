@@ -282,5 +282,13 @@ JOIN Modelo ON Veiculo.Modelo_codMod = Modelo.codMod
 WHERE cod = 2;
 
 // N. Exiba a placa, o nome dos donos e a descrição dos modelos de todos os veículos.
+SELECT
+	Veiculo.placa,
+	Cliente.nome,
+	Modelo.Desc_2
+FROM
+	Veiculo
+	JOIN Modelo ON Veiculo.Modelo_codMod = Modelo.codMod
+	JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf;
 
 
