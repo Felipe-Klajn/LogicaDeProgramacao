@@ -235,11 +235,39 @@ WHERE Veiculo.Modelo_codMod = 1;
 
 SELECT
 	Veiculo.placa,
-	Estaciona.dtEntrada,
-	Estaciona.dtSaida,
+	Estaciona.hsEntrada,
+	Estaciona.hsSaida,
 	Veiculo.cor
 FROM Estaciona
 
 JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
 
 where veiculo.cor = "verde";
+
+// J. Liste todos os estacionamentos do veículo de placa “EFG5E67”
+SELECT
+	Estaciona.*
+FROM 
+	Estaciona
+JOIN Veiculo ON Estaciona.Veiculo = Veiculo.placa
+WHERE
+	Veiculo.placa = "EFG5E67";
+	
+// K. Exiba o nome do cliente que possui o veículo cujo código do estacionamento é 2	
+SELECT
+	Cliente.nome
+FROM Estaciona
+	JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
+	JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf
+WHERE cod =2;
+
+// L. Exiba o CPF do cliente que possui o veículo cujo código do estacionamento é 3
+SELECT
+	Cliente.cpf,
+	Estaciona.cod
+FROM
+	Estaciona
+JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
+JOIN Cliente ON Veiculo.cliente_cpf = cliente.cpf
+WHERE cod = 3;
+
