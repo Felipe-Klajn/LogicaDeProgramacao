@@ -216,3 +216,30 @@ JOIN Patio ON Estaciona.patio_num = patio.num
 where Veiculo_placa = "HIJ8H90";
 
 // G. Exiba a quantidade de vezes que os veículos de cor preto estacionaram
+SELECT
+	COUNT(Veiculo.cor)
+FROM Estaciona
+	JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
+WHERE Veiculo.cor = "preto";
+
+// H. Liste todos os clientes que possuem carro de modelo 1. 
+
+SELECT
+	Cliente.*
+FROM
+	Veiculo
+	JOIN Cliente ON veiculo.cliente_cpf = cliente.cpf
+WHERE Veiculo.Modelo_codMod = 1;
+
+// I. Liste as placas, os horários de entrada e saída dos veículos de cor verde
+
+SELECT
+	Veiculo.placa,
+	Estaciona.dtEntrada,
+	Estaciona.dtSaida,
+	Veiculo.cor
+FROM Estaciona
+
+JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
+
+where veiculo.cor = "verde";
