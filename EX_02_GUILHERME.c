@@ -271,3 +271,16 @@ JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
 JOIN Cliente ON Veiculo.cliente_cpf = cliente.cpf
 WHERE cod = 3;
 
+// M. Exiba a descrição do modelo do veículo cujo código do estacionamento é 2. 
+SELECT
+	Estaciona.cod,
+	Modelo.Desc_2
+FROM
+	Estaciona
+JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
+JOIN Modelo ON Veiculo.Modelo_codMod = Modelo.codMod
+WHERE cod = 2;
+
+// N. Exiba a placa, o nome dos donos e a descrição dos modelos de todos os veículos.
+
+
